@@ -7,11 +7,12 @@ var router = express.Router();
 router.use(bodyParser.json());
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   res.send('respond with a resource');
 });
 
 router.post('/signup', (req, res, next) => {
+
   User.register(new User({username: req.body.username}), 
     req.body.password, (err, user) => {
     if(err) {
